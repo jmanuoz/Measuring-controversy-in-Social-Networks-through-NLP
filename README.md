@@ -1,4 +1,4 @@
-# Vocabulary-based-Method-for-Quantify-Controversy
+# Measuring controversy in Social Networks through NLP
 Python and R code to identify automatically controversy on Twitter through text
 
 
@@ -8,9 +8,9 @@ Python and R code to identify automatically controversy on Twitter through text
 - R libraries
   - igraph
   - rtweet
+  - plyr
+  - textclean
   - tidyverse
-  - readr
-  - rgexf
   
 - Python 3
 - Python libraries
