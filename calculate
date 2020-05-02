@@ -1,0 +1,11 @@
+#!/bin/bash
+declare -a scores
+scores=()
+Rscript create_txt.R $1
+./fasttext supervised -input $1-train.txt -output $1 -dim 200 -wordNgrams 2 -ws 5 
+./fasttext print-sentence-vectors $1.bin < $1-C1.txt > $1-C1-vec.txt
+./fasttext print-sentence-vectors $1.bin < $1-C2.txt > $1-C2-vec.txt
+
+scores+=($(python3 score.py $1))
+echo "Scores"
+printf '%s \n' "${scores[@]}"

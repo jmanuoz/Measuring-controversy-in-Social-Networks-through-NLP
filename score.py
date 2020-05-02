@@ -1,13 +1,7 @@
-from nltk.tag import pos_tag
-from nltk.tag import pos_tag
+
 from scipy import spatial
-from nltk.stem import PorterStemmer 
-from sklearn.feature_extraction.text import TfidfVectorizer
-from nltk.corpus import stopwords 
 import numpy as nx
 import sys
-from sklearn.manifold import TSNE
-from sklearn.decomposition import TruncatedSVD
 from math import*
 from scipy.spatial import distance
 file2 = sys.argv[1];
