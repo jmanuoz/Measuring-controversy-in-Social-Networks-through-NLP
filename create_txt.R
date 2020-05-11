@@ -1,6 +1,7 @@
 library("plyr")
 library("igraph")
 library("textclean")
+
 args = commandArgs(trailingOnly=TRUE)
 fileName = args[1]
 load(paste0(fileName,".RData"))
@@ -35,7 +36,7 @@ text <- gsub(" +", " ", text) # General spaces (should just do all whitespaces n
 text <- gsub("\n", " ", text) # General spaces (should just do all whitespaces no?)
 
 text2<-users_text$text[which(paste('',users_text$screen_name,sep="") %in% community2)]
-text2 <- unique(text)
+text2 <- unique(text2)
 text2 <- gsub("RT", " ", text2)  # Remove the "RT" (retweet) so duplicates are duplicates
 text2 <- gsub("@\\w+", " ", text2)  # Remove user names (all proper names if you're wise!)
 text2 <- gsub("http.+ |http.+$", " ", text2)  # Remove links
