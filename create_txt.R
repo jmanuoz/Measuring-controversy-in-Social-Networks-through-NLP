@@ -5,6 +5,7 @@ library("textclean")
 args = commandArgs(trailingOnly=TRUE)
 fileName = args[1]
 load(paste0(fileName,".RData"))
+
 my.com.fast = cluster_louvain(as.undirected(simplify(net)))
 largestCommunities <- order(sizes(my.com.fast), decreasing=TRUE)[1:2]
 community1 <- names(which(membership(my.com.fast) == largestCommunities[1]))
@@ -23,7 +24,7 @@ if(length(unique(users_text$text[which(paste('',users_text$screen_name,sep="") %
 }
 fileConn<-file(paste0(fileName,"-train.txt"), 'w')
 text<-users_text$text[which(paste('',users_text$screen_name,sep="") %in% community1)]
-text <- unique(text)
+#text <- unique(text)
 # Here we pre-process the data in standard ways.
 text <- gsub("RT", " ", text)  # Remove the "RT" (retweet) so duplicates are duplicates
 text <- gsub("@\\w+", " ", text)  # Remove user names (all proper names if you're wise!)
@@ -36,7 +37,7 @@ text <- gsub(" +", " ", text) # General spaces (should just do all whitespaces n
 text <- gsub("\n", " ", text) # General spaces (should just do all whitespaces no?)
 
 text2<-users_text$text[which(paste('',users_text$screen_name,sep="") %in% community2)]
-text2 <- unique(text2)
+#text2 <- unique(text2)
 text2 <- gsub("RT", " ", text2)  # Remove the "RT" (retweet) so duplicates are duplicates
 text2 <- gsub("@\\w+", " ", text2)  # Remove user names (all proper names if you're wise!)
 text2 <- gsub("http.+ |http.+$", " ", text2)  # Remove links
