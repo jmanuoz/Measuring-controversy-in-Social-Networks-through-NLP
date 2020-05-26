@@ -51,7 +51,7 @@ c2 = tweetsc2
 # calculate centroids
 cent1 = c1.mean(axis=0)
 cent2 = c2.mean(axis=0)
-cent0 = (cent1+cent2)*0.5
+cent0 = X.mean(axis=0)
 
 v = nx.cov(X.T)
 SS0 = 0
