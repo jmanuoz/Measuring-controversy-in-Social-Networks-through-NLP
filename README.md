@@ -19,7 +19,7 @@ Python and R code to identify automatically controversy on Twitter through text
   
   ## Usage
   
-- `create_graph.R` download data by a hashtag or key word, creates the retweet graph and save enviroment
+- `create_graph.R` downloads data by a hashtag or key word, creates the retweet graph and save enviroment
 - Bash file `calculate` recieves as parameter the name of the saved enviroment and do the following steps:
   - Create training and test files for Fasttext (or BERT)
   - Train Fasttext model
@@ -34,9 +34,9 @@ Example for "bigil" dataset: `./calculate bigil`
 
 As described in the paper, BERT can be used instead of Fastext, to create embeddings of users.
 
-Use the labels computed for FastText to create a proper file to finetune BERT
+Use the labels computed (with `calculate`) for FastText to create a train file to finetune BERT using `create_trainBERT.py`
 
-Finetune of BERT as in the [original repository](https://github.com/google-research/bert)
+Finetune of BERT as in the [original repository](https://github.com/google-research/bert). Be sure to properly set `$DATA_DIR`, `$BERT_BASE_DIR` and `$OUTPUT_DIR`
 
 ```
 python bert/run_classifier.py \
